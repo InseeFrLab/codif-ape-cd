@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: codif-ape-app-dev
-          image: thomasfaria/codification-ape-api:latest
+          image: thomasfaria/codification-ape-api:v1.0.0
           imagePullPolicy: Always
           env:
             # env var for s3 connexion
@@ -38,9 +38,9 @@ spec:
               value: https://projet-ape-mlflow.user.lab.sspcloud.fr
             # env var for setting models uri which will be deployed
             - name: MLFLOW_MODEL_NAME
-              value: test
+              value: FastText-APE-nace2025
             - name: MLFLOW_MODEL_VERSION
-              value: "15"
+              value: "1"
             - name: AUTH_API
               value: "False"
           resources:
