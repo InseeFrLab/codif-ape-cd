@@ -23,7 +23,7 @@ spec:
             - name: MLFLOW_MODEL_NAME
               value: fasttext-pytorch
             - name: MLFLOW_MODEL_VERSION
-              value: "7"  # Enclose the value in quotes
+              value: "8"  # Enclose the value in quotes
             - name: AUTH_API
               value: "False"
           resources:
