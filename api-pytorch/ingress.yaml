@@ -6,6 +6,9 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "360"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "360"
 spec:
+  tls:
+    - hosts:
+        - codification-ape-pytorch.lab.sspcloud.fr
   rules:
     - host: codification-ape-pytorch.lab.sspcloud.fr
       http:
