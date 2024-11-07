@@ -28,5 +28,8 @@ spec:
               value: "False"
           resources:
             limits:
-              cpu: "2000m"
-              memory: "20Gi"
+              cpu: 30000m
+              memory: 50Gi
+            requests:
+              cpu: 100m
+              memory: 2Gi
