@@ -47,5 +47,3 @@ spec:
             limits:
               memory: "20Gi"
               cpu: "2000m"
-          workers: 10
-          workerTimeout: 600
