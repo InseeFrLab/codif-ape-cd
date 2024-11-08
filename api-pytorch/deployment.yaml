@@ -50,5 +50,3 @@ spec:
             requests:
               cpu: 100m
               memory: 2Gi
-          workers: 10
-          workerTimeout: 600
