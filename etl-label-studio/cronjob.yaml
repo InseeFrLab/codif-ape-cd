@@ -40,12 +40,12 @@ spec:
                 wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/generate_templates/create_template_NAF2025_CG.py &&
                 wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/generate_templates/create_template_NAF2025_PSA.py &&
                 wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/generate_templates/create_template_NAF2025_SOCET.py &&
-                wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/generate_templates/create_template_NAF2025_SSP.py &&
+                wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/generate_templates/create_template_NAF2025_RSV.py &&
                 wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/nace-rev-2-1/batch_AGRI.sh &&
                 wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/nace-rev-2-1/batch_CG.sh &&
                 wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/nace-rev-2-1/batch_PSA.sh &&
                 wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/nace-rev-2-1/batch_SOCET.sh &&
-                wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/nace-rev-2-1/batch_SSP.sh &&
+                wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/nace-rev-2-1/batch_RSV.sh &&
                 wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/labeling_pipeline_s3.sh &&
                 wget https://raw.githubusercontent.com/InseeFrLab/codif-ape-annotation/main/utils/nace-rev-2-1/launch_labeling.sh &&
                 chmod +x labeling_pipeline_s3.sh &&
@@ -53,7 +53,7 @@ spec:
                 chmod +x batch_CG.sh &&
                 chmod +x batch_PSA.sh &&
                 chmod +x batch_SOCET.sh &&
-                chmod +x batch_SSP.sh &&
+                chmod +x batch_RSV.sh &&
                 chmod +x launch_labeling.sh &&
                 export MC_HOST_s3=https://$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY@$AWS_S3_ENDPOINT &&
                 ./launch_labeling.sh 
@@ -101,10 +101,10 @@ spec:
                 secretKeyRef:
                   name: secret-label-studio-token-rev-naf2025-socet
                   key: token
-            - name: LABEL_STUDIO_TOKEN_REV_NAF2025_SSP
+            - name: LABEL_STUDIO_TOKEN_REV_NAF2025_RSV
               valueFrom:
                 secretKeyRef:
-                  name: secret-label-studio-token-rev-naf2025-ssp
+                  name: secret-label-studio-token-rev-naf2025-RSV
                   key: token
           restartPolicy: Never
           serviceAccountName: send-batch-label-studio
