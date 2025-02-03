@@ -40,7 +40,7 @@ spec:
             - name: MLFLOW_MODEL_NAME
               value: FastText-APE-nace2025
             - name: MLFLOW_MODEL_VERSION
-              value: "2"
+              value: "3"
             - name: AUTH_API
               value: "False"
           resources:
