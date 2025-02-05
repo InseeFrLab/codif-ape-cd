@@ -1,0 +1,49 @@
+# Creating MLflow deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codification-ape-model-deployment-meta-rev2-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: codification-ape-model-deployment-meta-rev2-dev
+  template:
+    metadata:
+      labels:
+        app: codification-ape-model-deployment-meta-rev2-dev
+    spec:
+      containers:
+        - name: codif-ape-app-dev
+          image: thomasfaria/codification-ape-api:deploy-dev-api-rev2
+          imagePullPolicy: Always
+          env:
+            # env var for s3 connexion
+            - name: MLFLOW_S3_ENDPOINT_URL
+              value: https://minio.lab.sspcloud.fr
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: my-s3-creds
+                  key: accessKey
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: my-s3-creds
+                  key: secretKey
+            - name: AWS_DEFAULT_REGION
+              value: us-east-1
+            # env var for setting mlflow model registry server
+            - name: MLFLOW_TRACKING_URI
+              value: https://projet-ape-mlflow.user.lab.sspcloud.fr
+            # env var for setting models uri which will be deployed
+            - name: MLFLOW_MODEL_NAME
+              value: FastText-meta-rev2
+            - name: MLFLOW_MODEL_VERSION
+              value: "1"
+            - name: AUTH_API
+              value: "False"
+          resources:
+            limits:
+              memory: "20Gi"
+              cpu: "2000m"
