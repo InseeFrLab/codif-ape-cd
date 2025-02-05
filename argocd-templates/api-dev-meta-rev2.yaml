@@ -7,7 +7,7 @@ spec:
   source:
     repoURL: https://github.com/InseeFrLab/codif-ape-cd.git
     targetRevision: main
-    path: api-pytorch
+    path: api-meta-rev2
   destination:
     server: https://kubernetes.default.svc
     namespace: projet-ape
