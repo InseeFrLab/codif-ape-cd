@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: codif-ape-rag-ui
-          image: meilametayebjee/codification-ape-graph-rag-streamlit:v0.0.1
+          image: meilametayebjee/codification-ape-graph-rag-streamlit:v0.0.2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8501
