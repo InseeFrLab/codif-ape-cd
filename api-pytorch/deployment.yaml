@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: codif-ape-app-pytorch
-          image: thomasfaria/codification-ape-api:fasttext-pytorch
+          image: thomasfaria/codification-ape-api:torchFastText-v0.0.1
           imagePullPolicy: Always
           env:
             # env var for s3 connexion
