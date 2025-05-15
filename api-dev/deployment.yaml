@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: codif-ape-app-dev
-          image: thomasfaria/codification-ape-api:v1.0.1
-          imagePullPolicy: Always
+          image: thomasfaria/codification-ape-api:v1.0.0
+          imagePullPolicy: IfNotPresent
           env:
             # env var for s3 connexion
             - name: MLFLOW_S3_ENDPOINT_URL
