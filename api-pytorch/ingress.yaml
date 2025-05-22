@@ -20,11 +20,11 @@ spec:
               service:
                 name: codification-ape-model-service-pytorch2008
                 port:
-                  number: 80
+                  number: 5000
           - path: /2025(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service:
                 name: codification-ape-model-service-pytorch2025
                 port:
-                  number: 80
+                  number: 5000
