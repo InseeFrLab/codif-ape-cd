@@ -1,21 +1,20 @@
-# Creating MLflow deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: codification-ape-model-deployment-pytorch
+  name: codification-ape-model-deployment-pytorch2008
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: codification-ape-model-deployment-pytorch
+      app: codification-ape-model-deployment-pytorch2008
   template:
     metadata:
       labels:
-        app: codification-ape-model-deployment-pytorch
+        app: codification-ape-model-deployment-pytorch2008
     spec:
       containers:
         - name: codif-ape-app-pytorch
-          image: thomasfaria/codification-ape-api:torchFastText-v0.0.1
+          image: thomasfaria/codification-ape-api:torchFastText-v0.0.2
           imagePullPolicy: IfNotPresent
           env:
             # env var for s3 connexion
@@ -42,7 +41,63 @@ spec:
             - name: MLFLOW_MODEL_NAME
               value: FastText-pytorch
             - name: MLFLOW_MODEL_VERSION
-              value: "2"
+              value: "4"
+            - name: AUTH_API
+              value: "False"
+          resources:
+            limits:
+              cpu: 7500m
+              memory: 5Gi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codification-ape-model-deployment-pytorch2025
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: codification-ape-model-deployment-pytorch2025
+  template:
+    metadata:
+      labels:
+        app: codification-ape-model-deployment-pytorch2025
+    spec:
+      containers:
+        - name: codif-ape-app-pytorch
+          image: thomasfaria/codification-ape-api:torchFastText-v0.0.2
+          imagePullPolicy: IfNotPresent
+          env:
+            # env var for s3 connexion
+            - name: MLFLOW_S3_ENDPOINT_URL
+              value: https://minio.lab.sspcloud.fr
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: my-s3-creds
+                  key: accessKey
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: my-s3-creds
+                  key: secretKey
+            - name: AWS_DEFAULT_REGION
+              value: us-east-1
+            - name: AWS_S3_ENDPOINT
+              value: minio.lab.sspcloud.fr
+            # env var for setting mlflow model registry server
+            - name: MLFLOW_TRACKING_URI
+              value: https://projet-ape-mlflow.user.lab.sspcloud.fr
+            # env var for setting models uri which will be deployed
+            - name: MLFLOW_MODEL_NAME
+              value: FastText-pytorch-2025
+            - name: MLFLOW_MODEL_VERSION
+              value: "4"
             - name: AUTH_API
               value: "False"
           resources:
