@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: codif-ape-app-pytorch
-          image: thomasfaria/codification-ape-api:torchFastText-v0.0.5
+          image: thomasfaria/codification-ape-api:torchFastText-v0.0.6
           imagePullPolicy: IfNotPresent
           env:
             # env var for s3 connexion
@@ -41,7 +41,7 @@ spec:
             - name: MLFLOW_MODEL_NAME
               value: FastText-pytorch
             - name: MLFLOW_MODEL_VERSION
-              value: "6"
+              value: "7"
             - name: AUTH_API
               value: "False"
           resources:
@@ -70,7 +70,7 @@ spec:
     spec:
       containers:
         - name: codif-ape-app-pytorch
-          image: thomasfaria/codification-ape-api:torchFastText-v0.0.5
+          image: thomasfaria/codification-ape-api:torchFastText-v0.0.6
           imagePullPolicy: IfNotPresent
           env:
             # env var for s3 connexion
@@ -97,7 +97,7 @@ spec:
             - name: MLFLOW_MODEL_NAME
               value: FastText-pytorch-2025
             - name: MLFLOW_MODEL_VERSION
-              value: "6"
+              value: "7"
             - name: AUTH_API
               value: "False"
           resources:
