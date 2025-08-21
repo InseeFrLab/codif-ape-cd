@@ -1,0 +1,51 @@
+# Creating MLflow deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codification-ape-model-deployment-test-pytorch-wrapper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: codification-ape-model-deployment-test-pytorch-wrapper
+  template:
+    metadata:
+      labels:
+        app: codification-ape-model-deployment-test-pytorch-wrapper
+    spec:
+      containers:
+        - name: codif-ape-app-test-pytorch-wrapper
+          image: thomasfaria/codification-ape-api:v1.0.0
+          imagePullPolicy: IfNotPresent
+          env:
+            # env var for s3 connexion
+            - name: MLFLOW_S3_ENDPOINT_URL
+              value: https://minio.lab.sspcloud.fr
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: my-s3-creds
+                  key: accessKey
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: my-s3-creds
+                  key: secretKey
+            - name: AWS_DEFAULT_REGION
+              value: us-east-1
+            # env var for setting mlflow model registry server
+            - name: MLFLOW_TRACKING_URI
+              value: https://projet-ape-mlflow.user.lab.sspcloud.fr
+            # env var for setting models uri which will be deployed
+            - name: MLFLOW_MODEL_NAME
+              value: test_wrapper_pytorch
+            - name: MLFLOW_MODEL_VERSION
+              value: "26"
+            - name: AUTH_API
+              value: "False"
+          resources:
+            limits:
+              cpu: 7500m
+              memory: 5Gi
+            requests:
+              cpu: 100m
