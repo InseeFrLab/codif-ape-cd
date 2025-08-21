@@ -38,7 +38,7 @@ spec:
               value: https://projet-ape-mlflow.user.lab.sspcloud.fr
             # env var for setting models uri which will be deployed
             - name: MLFLOW_MODEL_NAME
-              value: test_wrapper_pytorch
+              value: "test_wrapper_pytorch"
             - name: MLFLOW_MODEL_VERSION
               value: "26"
             - name: AUTH_API
