@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: codif-ape-app-test-pytorch-wrapper
-          image: thomasfaria/codification-ape-api:torchFastText-v0.0.6
+          image: thomasfaria/codification-ape-api:latest
           imagePullPolicy: IfNotPresent
           env:
             # env var for s3 connexion
