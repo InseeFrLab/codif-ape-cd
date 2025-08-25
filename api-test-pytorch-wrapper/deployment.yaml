@@ -40,7 +40,7 @@ spec:
             - name: MLFLOW_MODEL_NAME
               value: "test_wrapper_pytorch"
             - name: MLFLOW_MODEL_VERSION
-              value: "29"
+              value: "34"
             - name: AUTH_API
               value: "False"
           resources:
