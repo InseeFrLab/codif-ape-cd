@@ -41,7 +41,7 @@ spec:
             - name: MLFLOW_MODEL_NAME
               value: FastText-pytorch
             - name: MLFLOW_MODEL_VERSION
-              value: "7"
+              value: "8"
             - name: AUTH_API
               value: "False"
           resources:
@@ -97,7 +97,7 @@ spec:
             - name: MLFLOW_MODEL_NAME
               value: FastText-pytorch-2025
             - name: MLFLOW_MODEL_VERSION
-              value: "7"
+              value: "8"
             - name: AUTH_API
               value: "False"
           resources:
