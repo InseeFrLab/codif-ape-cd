@@ -28,7 +28,7 @@ spec:
         - name: app
           # Épingler `sha-xxxxxxx` (tag produit par la CI) plutôt que `latest` pour
           # figer la version pendant une campagne de revue.
-          image: inseefrlab/graal-match-verifier-review:latest
+          image: meilametayebjee/graal-match-verifier-review:latest
           imagePullPolicy: Always
           # Le run revu est épinglé ici : l'image n'embarque pas .git, donc --commit
           # ne peut pas être déduit du tag de HEAD. --input/--reviewers/--shared-n/
