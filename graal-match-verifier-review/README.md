@@ -6,8 +6,11 @@ annotateurs du projet GRAAL. Source, image et manifests d'origine :
 [`src/evaluation/apps/match_verifier_eval_app.py`](https://github.com/InseeFrLab/GRAAL/blob/main/src/evaluation/apps/match_verifier_eval_app.py).
 
 - Image : `meilametayebjee/graal-match-verifier-review`, poussée par la CI de GRAAL à
-  chaque push sur `main`. Épingler un tag `sha-xxxxxxx` plutôt que `latest` pour
-  figer la version pendant une campagne de revue.
+  chaque push sur `main` (`latest`, `sha-xxxxxxx`) et à chaque tag `vX.Y.Z` (`X.Y.Z`).
+  Le Deployment épingle un tag semver — aujourd'hui `0.0.1` — plutôt que `latest` :
+  pendant une campagne, la version que voient les annotateurs ne change que sur
+  décision. Pour livrer une nouvelle version : `git tag vX.Y.Z && git push --tags`
+  côté GRAAL, puis le tag ici, puis sync Argo CD.
 - URL : <https://graal-match-verifier-review.lab.sspcloud.fr>
 - Secrets attendus dans le namespace : `my-s3-creds` (déjà présent) et
   `graal-match-verifier-review`, à créer une fois :

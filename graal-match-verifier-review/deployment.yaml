@@ -26,9 +26,11 @@ spec:
     spec:
       containers:
         - name: app
-          # Épingler `sha-xxxxxxx` (tag produit par la CI) plutôt que `latest` pour
-          # figer la version pendant une campagne de revue.
-          image: meilametayebjee/graal-match-verifier-review:latest
+          # Épinglé sur un tag semver (poussé depuis GRAAL, `git tag v0.0.1`) plutôt
+          # que `latest` : pendant une campagne de revue, la version que voient les
+          # annotateurs ne doit changer que sur décision, pas à chaque merge sur main.
+          # 0.0.1 = notices complètes, exclusions (« ne comprend pas ») comprises.
+          image: meilametayebjee/graal-match-verifier-review:0.0.1
           imagePullPolicy: Always
           # Le run revu est épinglé ici : l'image n'embarque pas .git, donc --commit
           # ne peut pas être déduit du tag de HEAD. --input/--reviewers/--shared-n/
