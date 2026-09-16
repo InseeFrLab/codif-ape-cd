@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: graal-match-verifier-review
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/InseeFrLab/codif-ape-cd.git
+    targetRevision: main
+    path: graal-match-verifier-review
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: projet-ape
+  syncPolicy:
+    automated:
+      selfHeal: true
