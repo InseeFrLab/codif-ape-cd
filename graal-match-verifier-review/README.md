@@ -3,12 +3,9 @@
 App Flask de revue humaine des verdicts du *MatchVerifier*, utilisée par les
 annotateurs du projet GRAAL. Source, image et manifests d'origine :
 [InseeFrLab/GRAAL](https://github.com/InseeFrLab/GRAAL) —
-[`src/evaluation/apps/match_verifier_eval_app.py`](https://github.com/InseeFrLab/GRAAL/blob/main/src/evaluation/apps/match_verifier_eval_app.py),
-[`deploy/argocd/`](https://github.com/InseeFrLab/GRAAL/tree/main/deploy/argocd).
-Toute modification de fond se fait là-bas ; ce dossier n'en est que le miroir
-déployé.
+[`src/evaluation/apps/match_verifier_eval_app.py`](https://github.com/InseeFrLab/GRAAL/blob/main/src/evaluation/apps/match_verifier_eval_app.py).
 
-- Image : `inseefrlab/graal-match-verifier-review`, poussée par la CI de GRAAL à
+- Image : `meilametayebjee/graal-match-verifier-review`, poussée par la CI de GRAAL à
   chaque push sur `main`. Épingler un tag `sha-xxxxxxx` plutôt que `latest` pour
   figer la version pendant une campagne de revue.
 - URL : <https://graal-match-verifier-review.lab.sspcloud.fr>
