@@ -14,6 +14,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "360"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "360"
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
         - graal-match-verifier-review.lab.sspcloud.fr
